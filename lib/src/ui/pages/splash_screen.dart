@@ -53,7 +53,7 @@ class _SplashScreenState extends State<SplashScreenWidget> {
             Navigator.pushReplacement(context, homePageRoute);
           } else {
             if (authStatus == AuthStatus.NOT_LOGGED_IN) {
-              Navigator.pushReplacement(context, homePageRoute);
+              Navigator.pushReplacement(context, loginRoute);
             }
           }
         });

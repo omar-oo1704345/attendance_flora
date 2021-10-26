@@ -142,7 +142,7 @@ class _HomePageState extends State<HomePage>
     });
     _initializeGeoFence();
 
-    controller = new AnimationController(
+    controller = AnimationController(
         vsync: this, duration: new Duration(milliseconds: 300), value: 1.0);
   }
 
@@ -162,11 +162,11 @@ class _HomePageState extends State<HomePage>
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-        appBar: new AppBar(
-          title: Padding(
-            padding: const EdgeInsets.only(left: 55.0),
-            child: new Text(
+    return Scaffold(
+        appBar: AppBar(
+          title: const Padding(
+            padding: EdgeInsets.only(left: 55.0),
+            child: Text(
               "DASHBOARD",
               style: TextStyle(
                   fontSize: 25.0,
@@ -176,12 +176,12 @@ class _HomePageState extends State<HomePage>
           ),
           elevation: 0.0,
           backgroundColor: dashBoardColor,
-          leading: new IconButton(
+          leading: IconButton(
             onPressed: () {
               double velocity = 2.0;
               controller.fling(velocity: isPanelVisible ? -velocity : velocity);
             },
-            icon: new AnimatedIcon(
+            icon: AnimatedIcon(
               icon: AnimatedIcons.close_menu,
               progress: controller.view,
             ),
@@ -189,9 +189,9 @@ class _HomePageState extends State<HomePage>
         ),
         body: geoFenceActive == false
             ? Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   gradient: LinearGradient(
-                    colors: const [
+                    colors: [
                       splashScreenColorBottom,
                       splashScreenColorTop
                     ],
@@ -199,13 +199,13 @@ class _HomePageState extends State<HomePage>
                     end: Alignment.topRight,
                   ),
                 ),
-                child: Column(children: <Widget>[
+                child: Column(children: const <Widget>[
                   LinearProgressIndicator(
-                    valueColor: new AlwaysStoppedAnimation<Color>(
+                    valueColor: AlwaysStoppedAnimation<Color>(
                         splashScreenColorBottom),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(40.0),
+                    padding: EdgeInsets.all(40.0),
                     child: Text(
                       "Please Wait..\nwhile we are setting up things",
                       style: TextStyle(
@@ -216,7 +216,7 @@ class _HomePageState extends State<HomePage>
                     ),
                   )
                 ]))
-            : new Dashboard(
+            : Dashboard(
                 controller: controller,
                 user: widget.user,
               ));
