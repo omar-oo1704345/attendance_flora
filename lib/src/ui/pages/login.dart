@@ -21,8 +21,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  final _formKey = new GlobalKey<FormState>();
-  FirebaseDatabase db = new FirebaseDatabase();
+  final _formKey = GlobalKey<FormState>();
+  FirebaseDatabase db = FirebaseDatabase.instance;
   DatabaseReference _empIdRef, _userRef;
 
   String _username;
@@ -38,7 +38,7 @@ class _LoginState extends State<Login> {
   void initState() {
     _userRef = db.reference().child("users");
     _empIdRef = db.reference().child('EmployeeID');
-    authObject = new Auth();
+    authObject = Auth();
 
     super.initState();
   }
@@ -61,15 +61,19 @@ class _LoginState extends State<Login> {
       onLoadingDialog(context);
       String email;
       try {
-        _empIdRef.child(_username).once().then((DataSnapshot snapshot) {
-          if (snapshot == null) {
-            print("popped");
-            _errorMessage = "Invalid Login Details";
-          } else {
-            email = snapshot.value;
-          }
-          loginUser(email);
-        });
+        print("welcome");
+        // _empIdRef.child(_username).once().then((snapshot) {
+        //   if (snapshot == null) {
+        //     print("popped");
+        //     _errorMessage = "Invalid Login Details";
+        //   } else {
+        //     print("welcome2");
+        //     email = snapshot.value;
+        //   }
+        loginUser("abc@gmail.com");
+        // }).timeout(const Duration(seconds: 10), onTimeout: (){
+        //   print("timeout");
+        // });
       } catch (e) {
         print("A7A");
         print(e);
@@ -265,7 +269,7 @@ class _LoginState extends State<Login> {
                             child: Material(
                               color: Colors.transparent,
                               child: InkWell(
-                                onTap: () => loginUser(_username),
+                                onTap: () => validateAndSubmit(),
                                 child: const Center(
                                   child: Text("LOGIN",
                                       style: TextStyle(

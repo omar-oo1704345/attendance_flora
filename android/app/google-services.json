@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "23986187927",
+    "firebase_url": "https://flora-attendance-default-rtdb.firebaseio.com",
     "project_id": "flora-attendance",
     "storage_bucket": "flora-attendance.appspot.com"
   },
@@ -10,6 +11,35 @@
         "mobilesdk_app_id": "1:23986187927:android:8749f1e9774e66df60c3d2",
         "android_client_info": {
           "package_name": "com.omarkh.attendance_flora"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "23986187927-jvajb09vbj6d52n08vs83vuvug7mcoju.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC41KLJOY0WIAUIaZMgnDYkesuevWD705A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "23986187927-jvajb09vbj6d52n08vs83vuvug7mcoju.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:23986187927:android:0a29a46e29aa6c4360c3d2",
+        "android_client_info": {
+          "package_name": "example.com.geo_attendance_system"
         }
       },
       "oauth_client": [
